@@ -11,5 +11,5 @@ variable "sql" {
 }
 
 variable "columns" {
-  type = list(object({name = string, types = tuple([string, string])}))
+  type = list(object({name = string, hive_type = string, presto_type = string}))
 }

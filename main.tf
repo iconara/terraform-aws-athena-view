@@ -3,7 +3,7 @@ locals {
     originalSql = var.sql,
     catalog = "awsdatacatalog",
     schema = var.database_name,
-    columns = [for c in var.columns : {name = c.name, type = c.types[1]}],
+    columns = [for c in var.columns : {name = c.name, type = c.presto_type}],
   })
 }
 
@@ -24,7 +24,7 @@ resource "aws_glue_catalog_table" "view" {
       for_each = var.columns
       content {
         name = columns.value.name
-        type = columns.value.types[0]
+        type = columns.value.hive_type
       }
     }
   }
