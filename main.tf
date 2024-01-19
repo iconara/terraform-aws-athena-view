@@ -25,6 +25,7 @@ resource "aws_glue_catalog_table" "view" {
       content {
         name = columns.value.name
         type = columns.value.hive_type
+        comment = columns.value.comment
       }
     }
   }

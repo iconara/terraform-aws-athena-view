@@ -17,6 +17,7 @@ module "stats_view" {
       name = "name",
       hive_type = "string",
       presto_type = "varchar",
+      comment = "This is the name"
     },
     {
       name = "count",
