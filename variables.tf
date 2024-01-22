@@ -8,6 +8,12 @@ variable "name" {
   description = "The name of the view"
 }
 
+variable "description" {
+  type = string
+  description = "The description of the glue table"
+  default = null
+}
+
 variable "sql" {
   type = string
   description = "The SQL of the view (not including CREATE VIEW …)"
