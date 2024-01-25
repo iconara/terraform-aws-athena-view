@@ -11,9 +11,9 @@ resource "aws_glue_catalog_table" "view" {
   name = var.name
   database_name = var.database_name
   table_type = "VIRTUAL_VIEW"
-  parameters = {
+  parameters = merge(var.parameters, {
     presto_view = "true"
-  }
+  })
   view_original_text = "/* Presto View: ${base64encode(local.presto_view)} */"
   storage_descriptor {
     ser_de_info {
