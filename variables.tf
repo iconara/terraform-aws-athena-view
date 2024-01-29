@@ -10,7 +10,7 @@ variable "name" {
 
 variable "description" {
   type = string
-  description = "The description of the glue table"
+  description = "The description of the Glue table"
   default = null
 }
 
