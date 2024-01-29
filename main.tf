@@ -10,6 +10,7 @@ locals {
 resource "aws_glue_catalog_table" "view" {
   name = var.name
   database_name = var.database_name
+  description = var.description
   table_type = "VIRTUAL_VIEW"
   parameters = {
     presto_view = "true"
@@ -25,6 +26,7 @@ resource "aws_glue_catalog_table" "view" {
       content {
         name = columns.value.name
         type = columns.value.hive_type
+        comment = columns.value.comment
       }
     }
   }

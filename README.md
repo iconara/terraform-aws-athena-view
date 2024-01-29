@@ -11,12 +11,14 @@ module "stats_view" {
   source = "github.com/iconara/terraform-aws-athena-view"
   database_name = "analytics"
   name = "stats"
+  description = "Best stats ever"
   sql = "SELECT name, COUNT(*) AS count FROM data GROUP BY 1 ORDER BY 2 DESC"
   columns = [
     {
       name = "name",
       hive_type = "string",
       presto_type = "varchar",
+      comment = "This is the name"
     },
     {
       name = "count",

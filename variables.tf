@@ -8,13 +8,19 @@ variable "name" {
   description = "The name of the view"
 }
 
+variable "description" {
+  type = string
+  description = "The description of the glue table"
+  default = null
+}
+
 variable "sql" {
   type = string
   description = "The SQL of the view (not including CREATE VIEW …)"
 }
 
 variable "columns" {
-  type = list(object({name = string, hive_type = string, presto_type = string}))
+  type = list(object({name = string, hive_type = string, presto_type = string, comment = optional(string)}))
   description = <<EOT
 A list of the names and types of the columns of the view, using both Hive and Presto types.
 Views are complex structures in Athena, and the column names are repeated in multiple places in the metadata.
