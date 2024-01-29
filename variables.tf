@@ -31,3 +31,9 @@ between the columns specified here and the actual columns produced by the view S
 saying that the view is "stale".
 EOT
 }
+
+variable "parameters" {
+  type = map(string)
+  default = {}
+  description = "Additional Glue table parameters"
+}
